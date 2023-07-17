@@ -1,0 +1,7 @@
+.gallery__img{
+    transition: tranform 3s ease ;
+}
+
+.gallery__img:hover img{
+    transform: scale(1.1);
+}
