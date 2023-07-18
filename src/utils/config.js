@@ -1,1 +1,1 @@
-export const BASE_URL = 'https://backend-tour-management.onrender.com/api/v1'
+export const BASE_URL = 'https://chaupinan-tour.onrender.com/api/v1'
