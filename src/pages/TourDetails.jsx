@@ -15,8 +15,8 @@ const TourDetails = () => {
 
   const {id} = useParams()
   const reviewMsgRef = useRef('')
-  const [tourRating, setTourRating] = useState(null)
-  const {user} = useContext(AuthContext) 
+  const [tourRating, setTourRating, setHoverRating] = useState(null)
+  const {user} = useContext(AuthContext)
   //fetch data from database
   const {data:tour, loading, error} = useFetch(`${BASE_URL}/tours/${id}`)
 
@@ -34,40 +34,42 @@ const TourDetails = () => {
     const reviewText = reviewMsgRef.current.value;
 
     
+
     try {
+
       if(!user || user === undefined || user === null){
-        alert ('Please sign in (0> 3 <0)')
+        alert('Please sign in')
       }
 
       const reviewObj = {
-        username: user?.username,
+        username:user?.username,
         reviewText,
-        rating: tourRating
-      };
-
-      const res = await fetch(`${BASE_URL}/review/${id}`,{
-        method: "post",
-        headers: {
-          "content-type": "application/json",
-        },
-        credentials: "include",
-        body: JSON.stringify(reviewObj)
-      })
-      
-      const result = await res.json();
-      if(!res.ok) {
-        return alert(result.message);
+        rating:tourRating
       }
-      alert(result.message);
 
+      const res = await fetch(`${BASE_URL}/review/${id}`, {
+        method:"post",
+        headers:{
+          'content-type':'application/json'
+        },
+        credentials:'include',
+        body:JSON.stringify(reviewObj)
+      })
+
+      const result = await res.json()
+      if(!res.ok) {
+        return alert(result.message)
+      }
+      alert(result.message)
     } catch (err) {
       alert(err.message);
     }
+    
 
     // alert(`${reviewText}, ${tourRating}`)
   }
   useEffect(() =>{
-    window.scroll(0,0)
+    window.scrollTo(0,0)
   },[tour])
 
   return <>
@@ -108,11 +110,11 @@ const TourDetails = () => {
               <h4>Reviews ({reviews?.length} reviews)</h4>
               <Form onSubmit={submitHandler}>
                 <div className="d-flex align-items-center gap-3 mb-4 rating__group">
-                  <span onClick={()=> setTourRating(1)}><i class="icon_rating ri-star-fill"></i></span>
-                  <span onClick={()=> setTourRating(2)}><i class="icon_rating ri-star-fill"></i></span>
-                  <span onClick={()=> setTourRating(3)}><i class="icon_rating ri-star-fill"></i></span>
-                  <span onClick={()=> setTourRating(4)}><i class="icon_rating ri-star-fill"></i></span>
-                  <span onClick={()=> setTourRating(5)}><i class="icon_rating ri-star-fill"></i></span>                  
+                  <span onClick={()=> setTourRating(1)} onMouseEnter={()=> setHoverRating(1)} onMouseLeave={() => setHoverRating(1)}><i class="icon_rating ri-star-fill"></i></span>
+                  <span onClick={()=> setTourRating(2)} onMouseEnter={()=> setHoverRating(2)} onMouseLeave={() => setHoverRating(2)}><i class="icon_rating ri-star-fill"></i></span>
+                  <span onClick={()=> setTourRating(3)} onMouseEnter={()=> setHoverRating(3)} onMouseLeave={() => setHoverRating(3)}><i class="icon_rating ri-star-fill"></i></span>
+                  <span onClick={()=> setTourRating(4)} onMouseEnter={()=> setHoverRating(4)} onMouseLeave={() => setHoverRating(4)}><i class="icon_rating ri-star-fill"></i></span>
+                  <span onClick={()=> setTourRating(5)} onMouseEnter={()=> setHoverRating(5)} onMouseLeave={() => setHoverRating(5)}><i class="icon_rating ri-star-fill"></i></span>                  
                 </div>
                 <div className="review__input">
                   <input type="text" ref={reviewMsgRef} placeholder='share your thoughts' required />

@@ -1,5 +1,5 @@
-.tour__card{
-    
+.tour__card .link__tour_click{
+    text-decoration: none;
     transition: transform linear 0.1s;
 }
 .tour__card:hover{

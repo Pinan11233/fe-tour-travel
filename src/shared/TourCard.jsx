@@ -11,6 +11,7 @@ const TourCrad = ({ tour }) => {
     
     return (
     <div className="tour__card">
+        <Link to={`/tours/${_id}`} className='link__tour_click'>
         <Card>
             <div className="tour__img">
                 <img src={photo} alt="tour-img" />
@@ -48,6 +49,7 @@ const TourCrad = ({ tour }) => {
 
          </CardBody>
         </Card>
+        </Link>
     </div>
   )
 }
