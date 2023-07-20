@@ -45,7 +45,7 @@ const Booking = ({tour, avgRating}) => {
             const res = await fetch(`${BASE_URL}/booking`,{
                 method:'post',
                 headers:{
-                    'content-type':'application/json'
+                    "Content-Type": "application/json",
                 },
                 credentials:'include',
                 body: JSON.stringify(booking)
