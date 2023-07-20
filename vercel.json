@@ -1,0 +1,25 @@
+{
+    "version": 2,
+    
+    "env": {
+        "JWT_SECRET_KEY": "happyorsadtommy",
+        "MONGO_URI": "mongodb+srv://chaubinhan:chaupinan11233@cluster0.st5zcya.mongodb.net/tours_booking?retryWrites=true&w=majority"
+    },
+    "settings": {
+        "cors": {
+            "origin": "*",
+            "methods": [
+                "GET",
+                "POST",
+                "PUT",
+                "PATCH",
+                "DELETE",
+                "OPTIONS"
+            ],
+            "allowedHeaders": [
+                "Content-Type",
+                "Authorization"
+            ]
+        }
+    }
+}
