@@ -46,7 +46,7 @@ const footer = () => {
               <p>Follow us : </p>
               <div className="social__links">
                 <span>
-                    <a href="https://www.facebook.com/profile.php?id=100025392139702"><i class="ri-facebook-circle-line"></i></a>                    
+                    <a href="https://www.facebook.com/profile.php?id=100025392139702"><i class="ri-facebook-circle-line icon__facebook"></i></a>                    
                 </span>
                 <span>
                   <a href="https://www.instagram.com/pinan0204/?fbclid=IwAR3oc4pnZmrz9eeRBIrnACff8RWoPmKdfHk2FvRsfZDSRG0TU4MzFk-v0K0"><i class="ri-instagram-line icon__instagram"></i></a>                    

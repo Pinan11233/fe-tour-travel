@@ -53,7 +53,7 @@ const TourDetails = () => {
         headers: {
           'content-type':'application/json'
         },
-        // credentials:'include',
+        credentials:'include',
         body:JSON.stringify(reviewObj)
       })
 
